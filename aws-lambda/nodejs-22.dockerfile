@@ -1,3 +1,4 @@
 FROM public.ecr.aws/lambda/nodejs:22
 
-RUN dnf upgrade --refresh
+RUN dnf upgrade --refresh \
+    && npm update -g 
