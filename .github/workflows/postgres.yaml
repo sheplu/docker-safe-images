@@ -1,7 +1,6 @@
 name: Safe Postgres images
 
 on:
-  push:
   schedule:
     - cron: "0 4 * * *"
 
