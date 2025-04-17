@@ -1,6 +1,8 @@
 name: Safe Node.js images
 
 on:
+  push:
+    - main
   schedule:
     - cron: "0 4 * * *"
 
