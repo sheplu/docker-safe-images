@@ -2,7 +2,7 @@ name: Safe RabbitMQ images
 
 on:
   push:
-    branch:
+    branches:
       - main
   schedule:
     - cron: "0 4 * * *"
