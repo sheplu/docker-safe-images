@@ -1,6 +1,8 @@
 name: Safe PGVector images
 
 on:
+  push:
+    - main
   schedule:
     - cron: "0 4 * * *"
 
