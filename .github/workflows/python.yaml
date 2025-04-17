@@ -2,7 +2,8 @@ name: Safe Python images
 
 on:
   push:
-    - main
+    branches:
+      - main
   schedule:
     - cron: "0 4 * * *"
 
