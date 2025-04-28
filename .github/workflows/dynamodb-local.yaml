@@ -1,9 +1,6 @@
 name: Safe Amazon images
 
 on:
-  push:
-    branches:
-      - main
   schedule:
     - cron: "0 4 * * *"
 
@@ -16,6 +13,10 @@ jobs:
           - name: "DynomoDB-local Latest"
             dockerfile: "./amazon/dynamodb-local.dockerfile"
             tags: "safe-image:dynamodb-local"
+            platforms: "linux/amd64,linux/arm64"
+          - name: "OTel Collector Latest"
+            dockerfile: "./amazon/aws-otel-collector.dockerfile"
+            tags: "safe-image:aws-otel-collector"
             platforms: "linux/amd64,linux/arm64"
          
     steps:
