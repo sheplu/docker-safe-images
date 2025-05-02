@@ -21,6 +21,10 @@ jobs:
             dockerfile: "./postgres/postgres-17.dockerfile"
             tags: "safe-image:postgres-17"
             platforms: "linux/amd64,linux/arm64"
+          - name: "Postgres Latest"
+            dockerfile: "./postgres/postgres-latest.dockerfile"
+            tags: "safe-image:postgres-latest"
+            platforms: "linux/amd64,linux/arm64"
          
     steps:
       - name: Checkout repository
