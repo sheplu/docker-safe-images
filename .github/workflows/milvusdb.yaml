@@ -1,6 +1,7 @@
 name: Safe MilvusDB images
 
 on:
+  push:
   schedule:
     - cron: "0 4 * * *"
 
