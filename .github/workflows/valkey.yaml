@@ -2,8 +2,8 @@ name: Safe Valkey images
 
 on:
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
   schedule:
     - cron: "0 4 * * *"
 
@@ -18,8 +18,12 @@ jobs:
             tags: "safe-image:valkey-7"
             platforms: "linux/amd64,linux/arm64"
           - name: "Valkey 8"
-            dockerfile: "./valkey/valkey-7.dockerfile"
+            dockerfile: "./valkey/valkey-8.dockerfile"
             tags: "safe-image:valkey-8"
+            platforms: "linux/amd64,linux/arm64"
+          - name: "Valkey 9"
+            dockerfile: "./valkey/valkey-9.dockerfile"
+            tags: "safe-image:valkey-9"
             platforms: "linux/amd64,linux/arm64"
           - name: "Valkey Latest"
             dockerfile: "./valkey/valkey-latest.dockerfile"
