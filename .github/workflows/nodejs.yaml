@@ -2,8 +2,8 @@ name: Safe Node.js images
 
 on:
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
   schedule:
     - cron: "0 4 * * *"
 
@@ -24,6 +24,10 @@ jobs:
           - name: "Node.js 24"
             dockerfile: "./nodejs/nodejs-24-slim.dockerfile"
             tags: "safe-image:node-24"
+            platforms: "linux/amd64,linux/arm64"
+          - name: "Node.js 25"
+            dockerfile: "./nodejs/nodejs-25-slim.dockerfile"
+            tags: "safe-image:node-25"
             platforms: "linux/amd64,linux/arm64"
           - name: "Node.js Latest"
             dockerfile: "./nodejs/nodejs-latest-slim.dockerfile"
