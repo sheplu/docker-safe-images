@@ -2,8 +2,8 @@ name: Safe Python images
 
 on:
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
   schedule:
     - cron: "0 4 * * *"
 
@@ -20,6 +20,10 @@ jobs:
           - name: "Python 3.13"
             dockerfile: "./python/python-3-13-slim.dockerfile"
             tags: "safe-image:python-3.13"
+            platforms: "linux/amd64,linux/arm64"
+          - name: "Python 3.14"
+            dockerfile: "./python/python-3-14-slim.dockerfile"
+            tags: "safe-image:python-3.14"
             platforms: "linux/amd64,linux/arm64"
           - name: "Python 3 Latest"
             dockerfile: "./python/python-3-latest-slim.dockerfile"
