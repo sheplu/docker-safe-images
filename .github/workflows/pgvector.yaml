@@ -21,6 +21,10 @@ jobs:
             dockerfile: "./pgvector/pgvector-17.dockerfile"
             tags: "safe-image:pgvector-17"
             platforms: "linux/amd64,linux/arm64"
+          - name: "PGVector 18"
+            dockerfile: "./pgvector/pgvector-18.dockerfile"
+            tags: "safe-image:pgvector-18"
+            platforms: "linux/amd64,linux/arm64"
          
     steps:
       - name: Checkout repository
