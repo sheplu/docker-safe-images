@@ -15,19 +15,27 @@ jobs:
         include:
           - name: "Python 3.12"
             dockerfile: "./python/python-3-12-slim.dockerfile"
-            tags: "safe-image:python-3.12"
+            tags: |
+              sheplu/safe-image:python-3.12
+              sheplu/python:3.12-slim
             platforms: "linux/amd64,linux/arm64"
           - name: "Python 3.13"
             dockerfile: "./python/python-3-13-slim.dockerfile"
-            tags: "safe-image:python-3.13"
+            tags: |
+              sheplu/safe-image:python-3.13
+              sheplu/python:3.13-slim
             platforms: "linux/amd64,linux/arm64"
           - name: "Python 3.14"
             dockerfile: "./python/python-3-14-slim.dockerfile"
-            tags: "safe-image:python-3.14"
+            tags: |
+              sheplu/safe-image:python-3.14
+              sheplu/python:3.14-slim
             platforms: "linux/amd64,linux/arm64"
           - name: "Python 3 Latest"
             dockerfile: "./python/python-3-latest-slim.dockerfile"
-            tags: "safe-image:python-3"
+            tags: |
+              sheplu/safe-image:python-3
+              sheplu/python:latest
             platforms: "linux/amd64,linux/arm64"
          
     steps:
@@ -51,6 +59,6 @@ jobs:
         with:
           file: ${{ matrix.dockerfile }}
           platforms: ${{ matrix.platforms }}
-          tags: ${{ secrets.DOCKER_USER }}/${{ matrix.tags }}
+          tags: ${{ matrix.tags }}
           push: true
           context: .
