@@ -15,23 +15,33 @@ jobs:
         include:
           - name: "Node.js 22"
             dockerfile: "./nodejs/nodejs-22-slim.dockerfile"
-            tags: "safe-image:node-22"
+            tags: |
+              sheplu/safe-image:node-22
+              sheplu/node:22-slim
             platforms: "linux/amd64,linux/arm64"
           - name: "Node.js 23"
             dockerfile: "./nodejs/nodejs-23-slim.dockerfile"
-            tags: "safe-image:node-23"
+            tags: |
+              sheplu/safe-image:node-23
+              sheplu/node:23-slim
             platforms: "linux/amd64,linux/arm64"
           - name: "Node.js 24"
             dockerfile: "./nodejs/nodejs-24-slim.dockerfile"
-            tags: "safe-image:node-24"
+            tags: |
+              sheplu/safe-image:node-24
+              sheplu/node:24-slim
             platforms: "linux/amd64,linux/arm64"
           - name: "Node.js 25"
             dockerfile: "./nodejs/nodejs-25-slim.dockerfile"
-            tags: "safe-image:node-25"
+            tags: |
+              sheplu/safe-image:node-25
+              sheplu/node:25-slim
             platforms: "linux/amd64,linux/arm64"
           - name: "Node.js Latest"
             dockerfile: "./nodejs/nodejs-latest-slim.dockerfile"
-            tags: "safe-image:node-latest"
+            tags: |
+              sheplu/safe-image:node-latest
+              sheplu/node:latest
             platforms: "linux/amd64,linux/arm64"
          
     steps:
@@ -55,6 +65,6 @@ jobs:
         with:
           file: ${{ matrix.dockerfile }}
           platforms: ${{ matrix.platforms }}
-          tags: ${{ secrets.DOCKER_USER }}/${{ matrix.tags }}
+          tags: ${{ matrix.tags }}
           push: true
           context: .
