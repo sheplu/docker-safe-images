@@ -19,12 +19,6 @@ jobs:
               sheplu/safe-image:node-22
               sheplu/node:22-slim
             platforms: "linux/amd64,linux/arm64"
-          - name: "Node.js 23"
-            dockerfile: "./nodejs/nodejs-23-slim.dockerfile"
-            tags: |
-              sheplu/safe-image:node-23
-              sheplu/node:23-slim
-            platforms: "linux/amd64,linux/arm64"
           - name: "Node.js 24"
             dockerfile: "./nodejs/nodejs-24-slim.dockerfile"
             tags: |
