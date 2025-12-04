@@ -31,6 +31,12 @@ jobs:
               sheplu/safe-image:node-25
               sheplu/node:25-slim
             platforms: "linux/amd64,linux/arm64"
+          - name: "Node.js LTS slim"
+            dockerfile: "./nodejs/nodejs-lts-slim.dockerfile"
+            tags: |
+              sheplu/safe-image:node-lts-slim
+              sheplu/node:lts-slim
+            platforms: "linux/amd64,linux/arm64"
           - name: "Node.js Latest"
             dockerfile: "./nodejs/nodejs-latest-slim.dockerfile"
             tags: |
