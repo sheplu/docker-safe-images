@@ -2,8 +2,8 @@ name: Safe Python images
 
 on:
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
   schedule:
     - cron: "0 4 * * *"
 
@@ -30,6 +30,12 @@ jobs:
             tags: |
               sheplu/safe-image:python-3.14
               sheplu/python:3.14-slim
+            platforms: "linux/amd64,linux/arm64"
+          - name: "Python 3 slim"
+            dockerfile: "./python/python-3-slim.dockerfile"
+            tags: |
+              sheplu/safe-image:python-3-slim
+              sheplu/python:3-slim
             platforms: "linux/amd64,linux/arm64"
           - name: "Python 3 Latest"
             dockerfile: "./python/python-3-latest-slim.dockerfile"
