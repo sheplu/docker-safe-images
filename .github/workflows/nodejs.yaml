@@ -19,11 +19,23 @@ jobs:
               sheplu/safe-image:node-22
               sheplu/node:22-slim
             platforms: "linux/amd64,linux/arm64"
+          - name: "Node.js 22 Alpine"
+            dockerfile: "./nodejs/nodejs-22-alpine.dockerfile"
+            tags: |
+              sheplu/safe-image:node-22-alpine
+              sheplu/node:22-alpine
+            platforms: "linux/amd64,linux/arm64"
           - name: "Node.js 24"
             dockerfile: "./nodejs/nodejs-24-slim.dockerfile"
             tags: |
               sheplu/safe-image:node-24
               sheplu/node:24-slim
+            platforms: "linux/amd64,linux/arm64"
+          - name: "Node.js 24 Alpine"
+            dockerfile: "./nodejs/nodejs-24-alpine.dockerfile"
+            tags: |
+              sheplu/safe-image:node-24-alpine
+              sheplu/node:24-alpine
             platforms: "linux/amd64,linux/arm64"
           - name: "Node.js 25"
             dockerfile: "./nodejs/nodejs-25-slim.dockerfile"
@@ -31,11 +43,23 @@ jobs:
               sheplu/safe-image:node-25
               sheplu/node:25-slim
             platforms: "linux/amd64,linux/arm64"
+          - name: "Node.js 25 Alpine"
+            dockerfile: "./nodejs/nodejs-25-alpine.dockerfile"
+            tags: |
+              sheplu/safe-image:node-25-alpine
+              sheplu/node:25-alpine
+            platforms: "linux/amd64,linux/arm64"
           - name: "Node.js LTS slim"
             dockerfile: "./nodejs/nodejs-lts-slim.dockerfile"
             tags: |
               sheplu/safe-image:node-lts-slim
               sheplu/node:lts-slim
+            platforms: "linux/amd64,linux/arm64"
+          - name: "Node.js 24 LTS Alpine"
+            dockerfile: "./nodejs/nodejs-lts-alpine.dockerfile"
+            tags: |
+              sheplu/safe-image:node-lts-alpine
+              sheplu/node:lts-alpine
             platforms: "linux/amd64,linux/arm64"
           - name: "Node.js Latest"
             dockerfile: "./nodejs/nodejs-latest-slim.dockerfile"
