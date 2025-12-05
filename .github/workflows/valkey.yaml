@@ -12,38 +12,54 @@ jobs:
         include:
           - name: "Valkey 7"
             dockerfile: "./valkey/valkey-7.dockerfile"
-            tags: "safe-image:valkey-7"
+            tags: |
+              sheplu/safe-image:valkey-7
+              sheplu/valkey:7
             platforms: "linux/amd64,linux/arm64"
           - name: "Valkey 7 Alpine"
             dockerfile: "./valkey/valkey-7-alpine.dockerfile"
-            tags: "safe-image:valkey-7-alpine"
+            tags: |
+              sheplu/safe-image:valkey-7-alpine
+              sheplu/valkey:7-alpine
             platforms: "linux/amd64,linux/arm64"
 
           - name: "Valkey 8"
             dockerfile: "./valkey/valkey-8.dockerfile"
-            tags: "safe-image:valkey-8"
+            tags: |
+              sheplu/safe-image:valkey-8
+              sheplu/valkey:8
             platforms: "linux/amd64,linux/arm64"
           - name: "Valkey 8 Alpine"
             dockerfile: "./valkey/valkey-8-alpine.dockerfile"
-            tags: "safe-image:valkey-8-alpine"
+            tags: |
+              sheplu/safe-image:valkey-8-alpine
+              sheplu/valkey:8-alpine
             platforms: "linux/amd64,linux/arm64"
 
           - name: "Valkey 9"
             dockerfile: "./valkey/valkey-9.dockerfile"
-            tags: "safe-image:valkey-9"
+            tags: |
+              sheplu/safe-image:valkey-9
+              sheplu/valkey:9
             platforms: "linux/amd64,linux/arm64"
           - name: "Valkey 9 Alpine"
             dockerfile: "./valkey/valkey-9-alpine.dockerfile"
-            tags: "safe-image:valkey-9-alpine"
+            tags: |
+              sheplu/safe-image:valkey-9-alpine
+              sheplu/valkey:9-alpine
             platforms: "linux/amd64,linux/arm64"
 
           - name: "Valkey Latest"
             dockerfile: "./valkey/valkey-latest.dockerfile"
-            tags: "safe-image:valkey-latest"
+            tags: |
+              sheplu/safe-image:valkey-latest
+              sheplu/valkey:latest
             platforms: "linux/amd64,linux/arm64"
           - name: "Valkey Latest Alpine"
             dockerfile: "./valkey/valkey-latest-alpine.dockerfile"
-            tags: "safe-image:valkey-alpine"
+            tags: |
+              sheplu/safe-image:valkey-alpine
+              sheplu/valkey:alpine
             platforms: "linux/amd64,linux/arm64"
          
     steps:
@@ -67,6 +83,6 @@ jobs:
         with:
           file: ${{ matrix.dockerfile }}
           platforms: ${{ matrix.platforms }}
-          tags: ${{ secrets.DOCKER_USER }}/${{ matrix.tags }}
+          tags: ${{ matrix.tags }}
           push: true
           context: .
