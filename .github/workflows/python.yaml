@@ -16,24 +16,52 @@ jobs:
               sheplu/safe-image:python-3.12
               sheplu/python:3.12-slim
             platforms: "linux/amd64,linux/arm64"
+          - name: Python 3.12 Alpine"
+            dockerfile: "./python/python-3-12-alpine.dockerfile"
+            tags: |
+              sheplu/safe-image:python-3.12-alpine
+              sheplu/python:3.12-alpine
+            platforms: "linux/amd64,linux/arm64"
+
           - name: "Python 3.13"
             dockerfile: "./python/python-3-13-slim.dockerfile"
             tags: |
               sheplu/safe-image:python-3.13
               sheplu/python:3.13-slim
             platforms: "linux/amd64,linux/arm64"
+          - name: Python 3.13 Alpine"
+            dockerfile: "./python/python-3-13-alpine.dockerfile"
+            tags: |
+              sheplu/safe-image:python-3.13-alpine
+              sheplu/python:3.13-alpine
+            platforms: "linux/amd64,linux/arm64"
+
           - name: "Python 3.14"
             dockerfile: "./python/python-3-14-slim.dockerfile"
             tags: |
               sheplu/safe-image:python-3.14
               sheplu/python:3.14-slim
             platforms: "linux/amd64,linux/arm64"
+          - name: Python 3.14 Alpine"
+            dockerfile: "./python/python-3-14-alpine.dockerfile"
+            tags: |
+              sheplu/safe-image:python-3.14-alpine
+              sheplu/python:3.14-alpine
+            platforms: "linux/amd64,linux/arm64"
+
           - name: "Python 3 slim"
             dockerfile: "./python/python-3-slim.dockerfile"
             tags: |
               sheplu/safe-image:python-3-slim
               sheplu/python:3-slim
             platforms: "linux/amd64,linux/arm64"
+          - name: Python 3 Alpine"
+            dockerfile: "./python/python-3-alpine.dockerfile"
+            tags: |
+              sheplu/safe-image:python-3-alpine
+              sheplu/python:3-alpine
+            platforms: "linux/amd64,linux/arm64"
+
           - name: "Python 3 Latest"
             dockerfile: "./python/python-3-latest-slim.dockerfile"
             tags: |
