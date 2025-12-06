@@ -12,35 +12,54 @@ jobs:
         include:
           - name: "Postgres 16"
             dockerfile: "./postgres/postgres-16.dockerfile"
-            tags: "safe-image:postgres-16"
+            tags: |
+              sheplu/safe-image:postgres-16
+              sheplu/postgres:16
             platforms: "linux/amd64,linux/arm64"
           - name: "Postgres 16 Alpine"
             dockerfile: "./postgres/postgres-16-alpine.dockerfile"
-            tags: "safe-image:postgres-16-alpine"
+            tags: |
+              sheplu/safe-image:postgres-16-alpine
+              sheplu/postgres:16-alpine
             platforms: "linux/amd64,linux/arm64"
+          
           - name: "Postgres 17"
             dockerfile: "./postgres/postgres-17.dockerfile"
-            tags: "safe-image:postgres-17"
+            tags: |
+              sheplu/safe-image:postgres-17
+              sheplu/postgres:17
             platforms: "linux/amd64,linux/arm64"
           - name: "Postgres 17 Alpine"
             dockerfile: "./postgres/postgres-17-alpine.dockerfile"
-            tags: "safe-image:postgres-17-alpine"
+            tags: |
+              sheplu/safe-image:postgres-17-alpine
+              sheplu/postgres:17-alpine
             platforms: "linux/amd64,linux/arm64"
+          
           - name: "Postgres 18"
             dockerfile: "./postgres/postgres-18.dockerfile"
-            tags: "safe-image:postgres-18"
+            tags: |
+              sheplu/safe-image:postgres-18
+              sheplu/postgres:18
             platforms: "linux/amd64,linux/arm64"
           - name: "Postgres 18 Alpine"
             dockerfile: "./postgres/postgres-18-alpine.dockerfile"
-            tags: "safe-image:postgres-18-alpine"
+            tags: |
+              sheplu/safe-image:postgres-18-alpine
+              sheplu/postgres:18-alpine
             platforms: "linux/amd64,linux/arm64"
+          
           - name: "Postgres Latest"
             dockerfile: "./postgres/postgres-latest.dockerfile"
-            tags: "safe-image:postgres-latest"
+            tags: |
+              sheplu/safe-image:postgres-latest
+              sheplu/postgres:latest
             platforms: "linux/amd64,linux/arm64"
           - name: "Postgres Alpine Latest"
             dockerfile: "./postgres/postgres-alpine.dockerfile"
-            tags: "safe-image:postgres-alpine"
+            tags: |
+              sheplu/safe-image:postgres-alpine
+              sheplu/postgres:alpine
             platforms: "linux/amd64,linux/arm64"
          
     steps:
@@ -64,6 +83,6 @@ jobs:
         with:
           file: ${{ matrix.dockerfile }}
           platforms: ${{ matrix.platforms }}
-          tags: ${{ secrets.DOCKER_USER }}/${{ matrix.tags }}
+          tags: ${{ matrix.tags }}
           push: true
           context: .
