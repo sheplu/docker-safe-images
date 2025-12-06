@@ -12,15 +12,21 @@ jobs:
         include:
           - name: "MongoDB 7"
             dockerfile: "./mongodb/mongo-7.dockerfile"
-            tags: "safe-image:mongo-7"
+            tags: |
+              sheplu/safe-image:mongo-7
+              sheplu/mongo:7
             platforms: "linux/amd64,linux/arm64"
           - name: "MongoDB 8"
             dockerfile: "./mongodb/mongo-8.dockerfile"
-            tags: "safe-image:mongo-8"
+            tags: |
+              sheplu/safe-image:mongo-8
+              sheplu/mongo:8
             platforms: "linux/amd64,linux/arm64"
           - name: "MongoDB Latest"
             dockerfile: "./mongodb/mongo-latest.dockerfile"
-            tags: "safe-image:mongo-latest"
+            tags: |
+              sheplu/safe-image:mongo-latest
+              sheplu/mongo:latest
             platforms: "linux/amd64,linux/arm64"
          
     steps:
@@ -44,6 +50,6 @@ jobs:
         with:
           file: ${{ matrix.dockerfile }}
           platforms: ${{ matrix.platforms }}
-          tags: ${{ secrets.DOCKER_USER }}/${{ matrix.tags }}
+          tags: ${{ matrix.tags }}
           push: true
           context: .
