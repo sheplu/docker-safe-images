@@ -12,15 +12,21 @@ jobs:
         include:
           - name: "Ubuntu 22.04"
             dockerfile: "./ubuntu/ubuntu-22-04.dockerfile"
-            tags: "safe-image:ubuntu-22.04"
+            tags: |
+              sheplu/safe-image:ubuntu-22.04
+              sheplu/ubuntu:22.04
             platforms: "linux/amd64,linux/arm64"
           - name: "Ubuntu 24.04"
             dockerfile: "./ubuntu/ubuntu-24-04.dockerfile"
-            tags: "safe-image:ubuntu-24.04"
+            tags: |
+              sheplu/safe-image:ubuntu-24.04
+              sheplu/ubuntu:24.04
             platforms: "linux/amd64,linux/arm64"
           - name: "Ubuntu Latest"
             dockerfile: "./ubuntu/ubuntu-latest.dockerfile"
-            tags: "safe-image:ubuntu-latest"
+            tags: |
+              sheplu/safe-image:ubuntu-latest
+              sheplu/ubuntu:latest
             platforms: "linux/amd64,linux/arm64"
          
     steps:
@@ -44,6 +50,6 @@ jobs:
         with:
           file: ${{ matrix.dockerfile }}
           platforms: ${{ matrix.platforms }}
-          tags: ${{ secrets.DOCKER_USER }}/${{ matrix.tags }}
+          tags: ${{ matrix.tags }}
           push: true
           context: .
