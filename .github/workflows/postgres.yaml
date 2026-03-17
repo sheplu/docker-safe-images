@@ -1,6 +1,7 @@
 name: Safe Postgres images
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 4 * * *"
 
@@ -22,7 +23,7 @@ jobs:
               sheplu/safe-image:postgres-16-alpine
               sheplu/postgres:16-alpine
             platforms: "linux/amd64,linux/arm64"
-          
+
           - name: "Postgres 17"
             dockerfile: "./postgres/postgres-17.dockerfile"
             tags: |
@@ -35,7 +36,7 @@ jobs:
               sheplu/safe-image:postgres-17-alpine
               sheplu/postgres:17-alpine
             platforms: "linux/amd64,linux/arm64"
-          
+
           - name: "Postgres 18"
             dockerfile: "./postgres/postgres-18.dockerfile"
             tags: |
@@ -48,7 +49,7 @@ jobs:
               sheplu/safe-image:postgres-18-alpine
               sheplu/postgres:18-alpine
             platforms: "linux/amd64,linux/arm64"
-          
+
           - name: "Postgres Latest"
             dockerfile: "./postgres/postgres-latest.dockerfile"
             tags: |
@@ -61,7 +62,7 @@ jobs:
               sheplu/safe-image:postgres-alpine
               sheplu/postgres:alpine
             platforms: "linux/amd64,linux/arm64"
-         
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6

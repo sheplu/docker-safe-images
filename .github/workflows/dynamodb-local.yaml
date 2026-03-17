@@ -1,6 +1,7 @@
 name: Safe Amazon images
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 4 * * *"
 
@@ -18,7 +19,7 @@ jobs:
             dockerfile: "./amazon/aws-otel-collector.dockerfile"
             tags: "safe-image:aws-otel-collector"
             platforms: "linux/amd64,linux/arm64"
-         
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
