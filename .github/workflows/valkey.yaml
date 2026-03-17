@@ -1,6 +1,7 @@
 name: Safe Valkey images
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 4 * * *"
 
@@ -61,7 +62,7 @@ jobs:
               sheplu/safe-image:valkey-alpine
               sheplu/valkey:alpine
             platforms: "linux/amd64,linux/arm64"
-         
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
